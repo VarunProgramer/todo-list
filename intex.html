@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
+
         body {
             width: 100vw;
             height: 100vh;
@@ -19,7 +21,8 @@
             flex-wrap: wrap;
             overflow: hidden;
         }
-        .box{
+
+        .box {
             width: 500px;
             height: 500px;
             background-color: rgb(232, 127, 255);
@@ -32,20 +35,23 @@
             flex-wrap: wrap;
 
         }
-        .box div{
+
+        .box div {
             width: 100%;
         }
-        .box input{
+
+        .box input {
             margin: 10px;
-            width: 70%;
-            height: 30px;
+            width: 69%;
+            height: 27px;
             border-radius: 25px;
             outline: none;
-            border: none;
+            border: 3px solid brown;
             padding: 10px;
             font-size: 20px;
         }
-        .add{
+
+        .add {
             padding: 13px 25px;
             background-color: brown;
             outline: none;
@@ -56,14 +62,17 @@
             font-weight: bold;
             transition: .5s;
         }
-        .add:hover{
+
+        .add:hover {
             box-shadow: 2px 2px 3px 3px rgba(69, 69, 69, .5);
         }
-        .output{
+
+        .output {
             height: 400px;
             overflow: scroll;
         }
-        .output li{
+
+        .output li {
             display: flex;
             font-size: 20px;
             font-weight: bold;
@@ -79,13 +88,15 @@
             transition: .5s;
             position: relative;
         }
-        .output li:hover{
+
+        .output li:hover {
             background-color: rgb(255, 255, 255);
             width: 460px;
             height: 45px;
 
         }
-        .del{
+
+        .del {
             position: absolute;
             right: 0px;
             padding: 6px 12px;
@@ -95,37 +106,42 @@
             border: none;
             background-color: rgb(247, 80, 65);
             color: #FFF;
-            font-size: 20px ;
+            font-size: 20px;
             font-weight: bold;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
         <div>
-            <input type="text" id="list">
-            <button id="btn" onclick="update()" class="add">Add</button>
+            <form action="">
+                <input type="text" id="list">
+                <button id="btn" onclick="update(event)" class="add">Add</button>
+            </form>
         </div>
         <ul class="output">
         </ul>
     </div>
 
     <script>
-        var btn=document.getElementById("btn")
-        var list=document.getElementById("list")
-        var li=document.getElementById("li")
-        var output=document.querySelector(".output")
+        var btn = document.getElementById("btn")
+        var list = document.getElementById("list")
+        var li = document.getElementById("li")
+        var output = document.querySelector(".output")
 
-        function update(){
+        function update(event) {
+            event.preventDefault()
             console.log(list.value)
             var li = document.createElement("li")
             li.innerHTML = list.value + '<button class="del" onclick="deleteItem(event)">X</button>'
             output.append(li)
-            list.value=''
+            list.value = ''
         }
-        function deleteItem(event){
+        function deleteItem(event) {
             event.target.parentElement.remove()
         }
     </script>
 </body>
+
 </html>

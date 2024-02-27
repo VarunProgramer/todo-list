@@ -3,8 +3,6 @@
         width: 45%;
     }
     .box{
-        position: relative;
-        right: 15px;
         width: 80vw;
     }
     .output li{
